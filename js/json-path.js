@@ -28,7 +28,7 @@ function jsonTemplate(doc,jsonObj)
 {
 	if (typeof(doc)=="string")
 	{ 
-		doc = document.getElementById(doc)
+		doc = document.getElementById(doc);
 	}
 
 	var qs = doc.querySelectorAll("*[data-json-path]");
