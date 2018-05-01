@@ -5,13 +5,10 @@
         <script src='js/jquery.min.js'></script>
         <script src='js/json-path.js'></script>
         <script>            
-        jQuery(function($){            
-            var doc = document.getElementById("jsonBindArea");
-
+        jQuery(function($){
             $.get( "data.json", function( data) {
-                jsonTemplate(doc,data);
+                jsonTemplate("jsonBindArea",data);
             });
-
         });
         </script>
     </head>
