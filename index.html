@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+    <head>  
+        <meta charset="utf-8" />
+        <script src='js/jquery.min.js'></script>
+        <script src='js/json-path.js'></script>
+        <script>            
+        jQuery(function($){            
+            var doc = document.getElementById("jsonBindArea");
+
+            $.get( "data.json", function( data) {
+                jsonTemplate(doc,data);
+            });
+
+        });
+        </script>
+    </head>
+    <body>
+        <div id="jsonBindArea">
+            <ul>
+                <li>
+                    <p style="font-weight:bold">제목 ::</p>
+                    <p data-json-path="entry/title" style="text-decoration:underline;color:rgb(155, 23, 23)"></p>
+                </li>
+                <li>
+                    <p style="font-weight:bold">설명 ::</p>
+                    <textarea data-json-path="entry/alt" cols="50" rows="5"></textarea>
+                </li>
+                <li>
+                    <img data-json-path="entry/image" width="350">
+                </li>
+            </ul>
+        </div>        
+    </body>
+</html>
