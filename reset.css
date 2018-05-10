@@ -15,7 +15,6 @@ vertical-align:baseline;
 background:transparent;
 }
 
-
 article,aside,details,figcaption,figure, footer,header,hgroup,menu,nav,section{
 display:block;
 }
@@ -119,6 +118,7 @@ div.code{
 }
 
 #demo{
+    background-color:#ffc74e;
     padding:10px 0px;
     text-align:center;
 }

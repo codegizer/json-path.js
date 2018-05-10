@@ -31,71 +31,76 @@
             <section>
                 <h2>2. 특징</h2>
                 <div>
-                    <ul style="padding-left:30px">
-                        <li>모델을 뷰에 주입하기 위한 데이터를 선언하거나 초기화 하는 코드가 필요 없습니다.</li>
-                    </ul>
-                    
+                    <ul style="padding-left:25px;">
+                        <li>모델(JSON객체)을 뷰에 주입하기 위한 데이터를 선언하거나 초기화 하는 코드가 필요 없습니다.</li>
+                    </ul>                    
                 </div>
             </section>
             <section>
                 <h2>3. 설명</h2>
                 <article>
                     <h3>3.1. JSON객체 정의하기(data.json)</h3>
-<div class="code" style="background:#0c1021;color:#f8f8f8">
-{<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#61ce3c">"entry"</span>:{<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#61ce3c">"title"</span>:<span style="color:#61ce3c">"붉은여우"</span>,<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#61ce3c">"alt"</span>:<span style="color:#61ce3c">"까꿍~! 이 사진은 붉은여우 입니다."</span>,<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#61ce3c">"image"</span>:<span style="color:#61ce3c">"redfox.jpg"</span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-}<br/>
-</div>                           
+                    <div class="code" style="background:#0c1021;color:#f8f8f8">
+                    {<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#61ce3c">"entry"</span>:{<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#61ce3c">"title"</span>:<span style="color:#61ce3c">"붉은여우"</span>,<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#61ce3c">"alt"</span>:<span style="color:#61ce3c">"까꿍~! 이 사진은 붉은여우 입니다."</span>,<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#61ce3c">"image"</span>:<span style="color:#61ce3c">"redfox.jpg"</span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+                    }<br/>
+                    </div>                           
                     <p>
                         위의 코드 내용은 아래의 html 코드에서 뷰 역할을 하는 또는 특정 컨테이너의 자식요소에 출력할 JSON 객체 입니다.
                     </p>
                 </article>
                 <article>
                 <h3>3.2. 뷰(또는 컨테이너의 자식요소)에 할당할 JSON의 값을 지정하는 방법</h3>
-<div class="code" style="background:#0c1021;color:#f8f8f8">
-        <span style="color:#7f90aa">&lt;<span style="color:#7f90aa">div</span> <span style="color:#7f90aa">id</span>=<span style="color:#61ce3c">"jsonBindArea"</span>></span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">ul</span>></span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">li</span>></span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">p</span> <span style="color:#7f90aa">style</span>=<span style="color:#61ce3c">"font-weight:bold"</span>></span>제목 ::<span style="color:#7f90aa">&lt;/<span style="color:#7f90aa">p</span>></span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">p</span> <span style="color:#7f90aa">data-json-path</span>=<span style="color:#61ce3c">"entry/title"</span> <span style="color:#7f90aa">style</span>=<span style="color:#61ce3c">"text-decoration:underline;color:rgb(155, 23, 23)"</span>>&lt;/<span style="color:#7f90aa">p</span>></span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;/<span style="color:#7f90aa">li</span>></span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">li</span>></span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">p</span> <span style="color:#7f90aa">style</span>=<span style="color:#61ce3c">"font-weight:bold"</span>></span>설명 ::<span style="color:#7f90aa">&lt;/<span style="color:#7f90aa">p</span>></span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">textarea</span> <span style="color:#7f90aa">data-json-path</span>=<span style="color:#61ce3c">"entry/alt"</span> <span style="color:#7f90aa">cols</span>=<span style="color:#61ce3c">"50"</span> <span style="color:#7f90aa">rows</span>=<span style="color:#61ce3c">"5"</span>>&lt;/<span style="color:#7f90aa">textarea</span>></span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;/<span style="color:#7f90aa">li</span>></span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">li</span>></span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">img</span> <span style="color:#7f90aa">data-json-path</span>=<span style="color:#61ce3c">"entry/image"</span> <span style="color:#7f90aa">width</span>=<span style="color:#61ce3c">"350"</span>></span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;/<span style="color:#7f90aa">li</span>></span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;/<span style="color:#7f90aa">ul</span>></span><br/>
-        <span style="color:#7f90aa">&lt;/<span style="color:#7f90aa">div</span>></span><br/>
-</div>
-                    <p><b>HTML 소스코드에서 키포인트는 다음과 같습니다.</b></p>
-                    <p>첫번째, id 값을 'jsonBindArea' 로 지정한 컨테이너</p>
-                    <p>두번째, data-json-path 속성이 삽입된 자식 요소들</p>
-                    <p>즉, 특정 컨네이너에 영역의 자식 요소들에 설정한 data-json-path 속성를 통해 해당 자식 요소에 JSON 객체의 특정 값을 출력합니다.</p>
+                    <div class="code" style="background:#0c1021;color:#f8f8f8">
+                            <span style="color:#7f90aa">&lt;<span style="color:#7f90aa">div</span> <span style="color:#7f90aa">id</span>=<span style="color:#61ce3c">"jsonBindArea"</span>></span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">ul</span>></span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">li</span>></span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">p</span> <span style="color:#7f90aa">style</span>=<span style="color:#61ce3c">"font-weight:bold"</span>></span>제목 ::<span style="color:#7f90aa">&lt;/<span style="color:#7f90aa">p</span>></span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">p</span> <span style="color:#7f90aa">data-json-path</span>=<span style="color:#61ce3c">"entry/title"</span> <span style="color:#7f90aa">style</span>=<span style="color:#61ce3c">"text-decoration:underline;color:rgb(155, 23, 23)"</span>>&lt;/<span style="color:#7f90aa">p</span>></span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;/<span style="color:#7f90aa">li</span>></span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">li</span>></span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">p</span> <span style="color:#7f90aa">style</span>=<span style="color:#61ce3c">"font-weight:bold"</span>></span>설명 ::<span style="color:#7f90aa">&lt;/<span style="color:#7f90aa">p</span>></span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">textarea</span> <span style="color:#7f90aa">data-json-path</span>=<span style="color:#61ce3c">"entry/alt"</span> <span style="color:#7f90aa">cols</span>=<span style="color:#61ce3c">"50"</span> <span style="color:#7f90aa">rows</span>=<span style="color:#61ce3c">"5"</span>>&lt;/<span style="color:#7f90aa">textarea</span>></span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;/<span style="color:#7f90aa">li</span>></span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">li</span>></span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;<span style="color:#7f90aa">img</span> <span style="color:#7f90aa">data-json-path</span>=<span style="color:#61ce3c">"entry/image"</span> <span style="color:#7f90aa">width</span>=<span style="color:#61ce3c">"350"</span>></span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;/<span style="color:#7f90aa">li</span>></span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f90aa">&lt;/<span style="color:#7f90aa">ul</span>></span><br/>
+                            <span style="color:#7f90aa">&lt;/<span style="color:#7f90aa">div</span>></span><br/>
+                    </div>
+                    <p><b>HTML 소스코드에서 키 포인트는 다음과 같습니다.</b></p>
+                    <ul style="padding-left:25px;margin-top:10px;">
+                        <li>id 값을 'jsonBindArea' 로 지정한 컨테이너</li>
+                        <li>data-json-path 속성이 삽입된 자식 요소들</li>
+                        <li>즉, 특정 컨네이너에 영역의 자식 요소들에 설정한 data-json-path 속성를 통해 해당 자식 요소에 JSON 객체의 특정 값을 출력합니다.</li>
+                    </ul>                    
                 </article>
                 <article>
                     <h3>3.3. JSON 객체와 뷰(또는 특정 컨테이너)를 연결</h3>
-<div class="code" style="background:#0c1021;color:#f8f8f8">
-        <span style="color:#7f90aa">&lt;<span style="color:#7f90aa">script</span> <span style="color:#7f90aa">src</span>=<span style="color:#61ce3c">'js/json-path.js'</span>>&lt;/<span style="color:#7f90aa">script</span>></span><br/>
-        &lt;<span style="color:#ff6400">script</span>><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;jQuery(<span style="color:#fbde2d">function</span>(<span style="color:#fbde2d">$</span>){<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#fbde2d">$</span>.get( <span style="color:#61ce3c">"data.json"</span>, <span style="color:#fbde2d">function</span>( data) {<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jsonTemplate(<span style="color:#61ce3c">"jsonBindArea"</span>,data);<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;});<br/>
-        &lt;/<span style="color:#ff6400">script</span>> <br/>
-</div>
-                <p>우선 html 페이지에 스크립트 파일인 json-path.js를 삽입합니다.</p>
-                <p>이 코드는 Jquery에서 제공하는 AJAX 프로그래밍 기능을 이용해 JSON 객체를 가져와 뷰와 연결합니다.</p>
-                <p>JSON 객체와 뷰를 연결하기 위해 jsonTemplate 함수를 호출하며 그 방법은 아래와 같습니다.</p>
-<div class="code" style="background:#0c1021;color:#f8f8f8">
-jsonTemplate(<span style="color:#61ce3c">"컨테이너ID"</span>,JSON 객체)<br/>
-</div>
+                    <div class="code" style="background:#0c1021;color:#f8f8f8">
+                            <span style="color:#7f90aa">&lt;<span style="color:#7f90aa">script</span> <span style="color:#7f90aa">src</span>=<span style="color:#61ce3c">'js/jquery.min.js'</span>>&lt;/<span style="color:#7f90aa">script</span>></span><br/>
+                            <span style="color:#7f90aa">&lt;<span style="color:#7f90aa">script</span> <span style="color:#7f90aa">src</span>=<span style="color:#61ce3c">'js/json-path.js'</span>>&lt;/<span style="color:#7f90aa">script</span>></span><br/>
+                            &lt;<span style="color:#ff6400">script</span>><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;jQuery(<span style="color:#fbde2d">function</span>(<span style="color:#fbde2d">$</span>){<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#fbde2d">$</span>.get( <span style="color:#61ce3c">"data.json"</span>, <span style="color:#fbde2d">function</span>( data) {<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jsonTemplate(<span style="color:#61ce3c">"jsonBindArea"</span>,data);<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;});<br/>
+                            &lt;/<span style="color:#ff6400">script</span>> <br/>
+                    </div>
+                    <ul style="padding-left:25px;margin-top:10px;list-style-type:decimal;">
+                        <li>우선 html 페이지에 스크립트 파일인 <b>json-path.js</b>를 삽입합니다.</li>
+                        <li>이 코드는 jQuery에서 제공하는 AJAX 프로그래밍 기능을 이용해 JSON 객체를 가져와 뷰와 연결합니다.</li>
+                        <li>JSON 객체와 뷰를 연결하기 위해 <b>jsonTemplate</b> 함수를 호출하며 그 방법은 아래와 같습니다.</li>            
+                    </ul> 
+
+                    <div class="code" style="background:#0c1021;color:#f8f8f8">
+                    jsonTemplate(<span style="color:#61ce3c">"컨테이너ID"</span>,JSON 객체)<br/>
+                    </div>
                 </article>
             </section>        
             <section>
@@ -105,7 +110,7 @@ jsonTemplate(<span style="color:#61ce3c">"컨테이너ID"</span>,JSON 객체)<br
                 </div>
             </section>
             <footer>
-                <hr/>
+                <hr style="margin:0px;padding:0px"/>
                 <p id="demo">
                     <a href="./demo/">&lt;&lt;데모 확인하기 &gt;&gt;</a>
                 </p>
