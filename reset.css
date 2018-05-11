@@ -5,10 +5,10 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding');
 
 /* CSS 초기화 */
-html, body, div, span, object, iframe, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video{
+html, body, div, span, object, hr, iframe, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video{
 margin:0px;
 padding:0px;
-border:0px;
+/*border:1px solid black;*/
 outline:0px;
 font-size:100%;
 vertical-align:baseline;
@@ -29,11 +29,11 @@ text-decoration:none;
 }
 
 html,body{
-    width:100%;
-    
+    width:100%;    
     font-family: 'Nanum Gothic', sans-serif;
 }
 
+hr{width:100%}
 #wrap{
     overflow-x:hidden;
     box-sizing: border-box; 
@@ -137,7 +137,7 @@ div.code{
 
 @media only screen and (max-width: 767px)
 {
-    #wrap{padding:15px 4%}    
+    #wrap{width:100%;padding:15px 2%}    
     .og_wrap{width: auto;}
     .og_thumb{width: 90px;}
     .og_thumb > img{width: 90px;}
